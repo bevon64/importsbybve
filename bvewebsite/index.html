@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPORTS BY BVE - Your Trusted Car Importer in Kenya</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <style>
+        /* 
+ * IMPORTS BY BVE - Corporate Design System
+ * Theme: Premium Blue Gradient & Glassmorphism
+ */
+
+        /* --- 1. Reset & Base Variables --- */
+        :root {
+            /* Gradient Theme Colors */
+            --gradient-start: #001f3f;
+            /* Deep Navy */
+            --gradient-end: #0057ae;
+            /* CMC Blue */
+
+            --primary-color: #4cc9f0;
+            /* Bright Cyan Accent */
+            --primary-dark: #3a9cc0;
+
+            --text-main: #ffffff;
+            /* Main text is now white */
+            --text-muted: #e0e0e0;
+            /* Muted text is light gray */
+
+            /* Glassmorphism Variables */
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+            --header-height: 80px;
+            --radius-sm: 8px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            /* Smoother bezier */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            background-attachment: fixed;
+            /* Parallax effect for gradient */
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--text-main);
+            font-weight: 700;
+            margin-bottom: 0.5em;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* --- 2. Components --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #002240;
+            /* Dark text on bright button */
+            padding: 12px 30px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        .view-all-btn {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .view-all-btn:hover {
+            background-color: var(--primary-color);
+            color: #002240;
+        }
+
+        /* --- 3. Header & Nav --- */
+        header {
+            background: rgba(0, 31, 63, 0.95);
+            /* Dark semi-transparent */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+        }
+
+        .logo a {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(76, 201, 240, 0.5);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            padding: 24px 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .burger div {
+            background-color: var(--text-main);
+            width: 25px;
+            height: 3px;
+            margin: 5px;
+            transition: var(--transition);
+        }
+
+        /* Mobile specific styles need to override default nav-links */
+        @media (max-width: 900px) {
+            body {
+                overflow-x: hidden;
+                /* Prevent horizontal scroll */
+            }
+
+            .nav-links {
+                position: absolute;
+                right: 0;
+                height: 92vh;
+                /* Height below header */
+                top: var(--header-height);
+                background-color: var(--gradient-start);
+                /* Solid background for menu */
+                background: linear-gradient(135deg, rgba(0, 31, 63, 0.98) 0%, rgba(0, 87, 174, 0.98) 100%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                /* Center items vertically */
+                width: 100%;
+                /* Full width or 50% depending on preference, 100% is safer for mobile */
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+                z-index: 999;
+                backdrop-filter: blur(15px);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links li {
+                opacity: 0;
+                /* JS will animate this */
+                margin: 15px 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                /* Larger font for touch */
+            }
+
+            .burger {
+                display: block;
+            }
+        }
+
+        .nav-active {
+            transform: translateX(0%);
+        }
+
+        /* Burger Animation Classes */
+        .toggle .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .toggle .line2 {
+            opacity: 0;
+        }
+
+        .toggle .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        @keyframes navLinkFade {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* --- 4. Hero Section --- */
+        .hero {
+            height: 700px;
+            background: url('images/hero-bg.png') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(to bottom, rgba(0, 31, 63, 0.4), var(--gradient-start));
+            /* Fade into body bg */
+        }
+
+        .hero-content {
+            background: rgba(0, 31, 63, 0.7);
+            /* Glassy dark blue */
+            padding: 60px 80px;
+            max-width: 900px;
+            border-radius: 100px;
+            /* Oval */
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* User asked for smooth transitions, these are handled by .reveal later */
+
+        /* --- 5. Common Layout --- */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-subtitle {
+            display: block;
+            text-align: center;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        /* --- 6. Glass Cards (Vehicles, Features, Etc.) --- */
+        .featured-vehicles,
+        .why-choose-us,
+        .testimonials,
+        .faq-section,
+        .contact-form,
+        .about-detailed {
+            background-color: transparent;
+            /* Let body gradient show */
+            text-align: center;
+        }
+
+        .vehicle-grid,
+        .features-grid,
+        .testimonial-grid {
+            display: grid;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .vehicle-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .features-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .testimonial-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* Glass Card Style */
+        .vehicle-card,
+        .feature-item,
+        .testimonial-card,
+        .faq-item,
+        .contact-form form,
+        .about-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            color: var(--text-main);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .vehicle-card:hover,
+        .feature-item:hover,
+        .testimonial-card:hover,
+        .faq-item:hover,
+        .about-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 40px rgba(76, 201, 240, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        /* Vehicle Specifics */
+        .vehicle-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .vehicle-card-content {
+            padding: 25px;
+            text-align: left;
+        }
+
+        .vehicle-card h3 {
+            color: var(--text-main);
+            font-size: 1.3rem;
+        }
+
+        .vehicle-card .price {
+            display: block;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(76, 201, 240, 0.3);
+        }
+
+        /* Feature Item Specifics */
+        .feature-item {
+            padding: 40px 20px;
+        }
+
+        .feature-item .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(76, 201, 240, 0.6);
+        }
+
+        /* Testimonial Specifics */
+        .testimonial-card {
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonial-card img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(76, 201, 240, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card .quote {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .testimonial-card .author h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* FAQ Specifics */
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto 0;
+            text-align: left;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .faq-question {
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .faq-question i {
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-answer p {
+            padding: 25px;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        /* Contact Form Specifics */
+        .contact-form form {
+            max-width: 700px;
+            margin: 40px auto 0;
+            padding: 50px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .form-group label {
+            color: var(--text-main);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-sm);
+            color: var(--white);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 15px rgba(76, 201, 240, 0.2);
+        }
+
+        /* --- 7. NEW Detailed About Us Styles --- */
+        .about-detailed {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .about-card {
+            padding: 40px;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: var(--primary-color);
+            opacity: 0.1;
+            border-radius: 50%;
+            filter: blur(40px);
+        }
+
+        .about-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- 8. Footer --- */
+        footer {
+            background: rgba(0, 10, 30, 0.9);
+            color: var(--text-muted);
+            padding: 80px 20px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-section h3 {
+            color: var(--text-main);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-muted);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        /* --- 9. Animations (Smooth Transitions) --- */
+        /* The user requested "pages to not appear at once" as they scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+            /* Elegant long ease */
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered delays for children if needed */
+        .vehicle-grid .vehicle-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .vehicle-grid .vehicle-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .vehicle-grid .vehicle-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .vehicle-grid .vehicle-card:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+
+
+        /* Disable interaction for social links as requested */
+        .footer-section.social a {
+            cursor: default;
+            pointer-events: none;
+        }
+
+        /* --- Mobile Responsiveness Adjustments --- */
+        @media (max-width: 900px) {
+            /* Handled in nav section above now */
+
+            .hero-content {
+                padding: 40px 20px;
+                border-radius: 30px;
+                /* Slightly less rounded on mobile to save space */
+                width: 100%;
+                /* Maximize width usage */
+                margin-top: 50px;
+                /* Space from header */
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-features {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 60px 20px;
+                /* Reduce padding on small screens */
+            }
+
+            .vehicle-card img {
+                height: 200px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .footer-section h3 {
+                border-bottom: none;
+                /* Simplify footer look */
+                text-decoration: underline;
+                text-decoration-color: var(--primary-color);
+                text-underline-offset: 8px;
+            }
+
+            .contact-form form {
+                padding: 25px;
+                /* Reduce padding in form */
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">IMPORTS BY BVE</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#vehicles">Vehicles</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#about-detailed">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Drive Your Dream Car in Kenya</h1>
+                <p>Seamlessly import high-quality vehicles from around the globe directly to your doorstep. We handle
+                    everything from auction to registration.</p>
+                <div class="hero-features">
+                    <span><i class="fas fa-check-circle"></i> Verified Quality</span>
+                    <span><i class="fas fa-check-circle"></i> Fast Shipping</span>
+                    <span><i class="fas fa-check-circle"></i> Customs Cleared</span>
+                </div>
+                <a href="#vehicles" class="btn btn-hero">View Our Inventory</a>
+            </div>
+        </section>
+
+        <section id="vehicles" class="featured-vehicles reveal">
+            <span class="section-subtitle">Premium Selection</span>
+            <h2>Our Featured Imports</h2>
+            <div class="vehicle-grid">
+                <!-- Vehicles injected by JS -->
+            </div>
+            <button id="load-more" class="btn view-all-btn">View Full Inventory</button>
+        </section>
+
+        <section id="services" class="why-choose-us reveal">
+            <span class="section-subtitle">The BVE Difference</span>
+            <h2>Why Choose IMPORTS BY BVE?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt icon"></i>
+                    <h3>Reliable Sourcing</h3>
+                    <p>We partner with trusted international dealers to guarantee vehicle quality.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-truck-moving icon"></i>
+                    <h3>Hassle-Free Logistics</h3>
+                    <p>From customs clearance to delivery, we handle all the complexities.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-handshake icon"></i>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees, clear breakdown of all costs from start to finish.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset icon"></i>
+                    <h3>Dedicated Support</h3>
+                    <p>Our team is available to assist you every step of the import process.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW TESTIMONIALS SECTION -->
+        <section id="testimonials" class="testimonials reveal">
+            <span class="section-subtitle">Success Stories</span>
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <img src="images/customer1.png" alt="John Kamau">
+                    <div class="testimonial-content">
+                        <p class="quote">"I was skeptical about importing online, but BVE made it seamless. My Harrier
+                            arrived in Mombasa exactly as described. The team is professional and honest."</p>
+                        <div class="author">
+                            <h4>John Kamau</h4>
+                            <span>Business Owner, Nairobi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="images/customer2.png" alt="Sarah Mwangi">
+                    <div class="testimonial-content">
+                        <p class="quote">"Excellent service! They handled all the KRA paperwork and clearance. I just
+                            picked up my Forester ready to drive. Highly recommended for busy professionals."</p>
+                        <div class="author">
+                            <h4>Sarah Mwangi</h4>
+                            <span>Doctor, Karen Hospital</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="images/customer3.png" alt="David Ochieng">
+                    <div class="testimonial-content">
+                        <p class="quote">"Got my Mazda Demio for my daughter's university transport. Best pricing I
+                            found in the market and the car handles perfectly."</p>
+                        <div class="author">
+                            <h4>David Ochieng</h4>
+                            <span>Architect, Kisumu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section reveal">
+            <span class="section-subtitle">Common Questions</span>
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does the import process take?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Typically, it takes <strong>25 to 35 days</strong> from the date of purchase for the vehicle
+                            to arrive at the port of Mombasa. Clearance and registration take an additional 3-5 working
+                            days.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you handle KRA customs clearance?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, absolutely. We offer a full door-to-door service which includes KRA valuation, duty
+                            payment, inspection, and registration. You receive the car ready to drive.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I inspect the car before buying?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Since the cars are imported, physical inspection isn't possible before purchase. However, we
+                            provide <strong>verified inspection sheets</strong> (QISJ/JEVIC) and comprehensive photo
+                            reports to guarantee the condition.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What are your payment terms?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We require a deposit to secure and ship the vehicle (CIF cost). The remaining balance (Duty +
+                            Port charges) is paid when the vehicle arrives in Mombasa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DETAILED ABOUT US SECTION -->
+        <section id="about-detailed" class="about-detailed reveal">
+            <span class="section-subtitle">Who We Are</span>
+            <h2>About IMPORTS BY BVE</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Our Mission</h3>
+                    <p>To redefine the car importation experience in Kenya by providing transparency, speed, and premium
+                        quality vehicles that exceed customer expectations.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted and sought-after partner for automotive solutions in East Africa, known
+                        for integrity and excellence in service.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Core Values</h3>
+                    <p><strong>Integrity:</strong> Honest pricing and genuine vehicle reports.<br>
+                        <strong>Quality:</strong> We only source verifiable, high-grade units.<br>
+                        <strong>Customer First:</strong> Your satisfaction is our ultimate roadmap.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-form reveal">
+            <span class="section-subtitle">Let's Connect</span>
+            <h2>Get in Touch</h2>
+            <p>Have questions or need a custom quote? Fill out the form below!</p>
+            <form action="https://formspree.io/f/movglrve" method="POST">
+                <!-- Formspree Configuration -->
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="How can we help you?"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>IMPORTS BY BVE</h3>
+                <p>Bringing premium imported vehicles to the Kenyan market with trust and efficiency.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#vehicles">Vehicles</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about-detailed">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact-info">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+
+                <p><i class="fas fa-envelope"></i> info@importsbybve.co.ke</p>
+            </div>
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 IMPORTS BY BVE. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Mobile Navigation Toggle ---
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.nav-links');
+            const navLinks = document.querySelectorAll('.nav-links li');
+
+            if (burger) {
+                burger.addEventListener('click', () => {
+                    // Toggle Nav
+                    nav.classList.toggle('nav-active');
+
+                    // Animate Links
+                    navLinks.forEach((link, index) => {
+                        if (link.style.animation) {
+                            link.style.animation = '';
+                        } else {
+                            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                        }
+                    });
+
+                    // Burger Animation
+                    burger.classList.toggle('toggle');
+                });
+            }
+
+            // Close nav when a link is clicked
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (nav.classList.contains('nav-active')) {
+                        nav.classList.remove('nav-active');
+                        burger.classList.remove('toggle');
+                        navLinks.forEach(item => item.style.animation = '');
+                    }
+                });
+            });
+
+            // --- Header Scroll Effect ---
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // --- Scroll Animations (Intersection Observer) ---
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.15, // Trigger when 15% of the element is visible
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // --- Search & Filter / Load More Logic ---
+            const vehicleGrid = document.querySelector('.vehicle-grid');
+            const loadMoreBtn = document.getElementById('load-more');
+
+            // Extended Vehicle Data (10 Unique Models)
+            const baseVehicles = [
+                { name: "Toyota Harrier", year: 2020, price: "Ksh 5,200,000", image: "images/car1.png", desc: "Z-Leather Package, Panoramic Sunroof, JBL Sound." },
+                { name: "Subaru Forester", year: 2019, price: "Ksh 4,100,000", image: "images/car2.png", desc: "Advance Tech, EyeSight Safety, X-Mode." },
+                { name: "Mazda Demio", year: 2021, price: "Ksh 1,950,000", image: "images/car3.png", desc: "15S Touring, Fuel Sipper, SkyActiv-G." },
+                { name: "Nissan X-Trail", year: 2018, price: "Ksh 3,800,000", image: "images/car4.png", desc: "7-Seater, 4WD, Emergency Brake Package." },
+                { name: "Toyota Prado", year: 2021, price: "Ksh 8,500,000", image: "images/car5.png", desc: "TX-L Package, Diesel Turbo, Sunroof." },
+                { name: "Mazda CX-5", year: 2020, price: "Ksh 4,500,000", image: "images/car6.png", desc: "XD L-Package, Diesel, Bose Sound." },
+                { name: "Mercedes C-Class", year: 2018, price: "Ksh 4,800,000", image: "images/car7.png", desc: "C200 Avantgarde, AMG Line, Leather, Blue." },
+                { name: "VW Golf", year: 2019, price: "Ksh 2,800,000", image: "images/car8.png", desc: "TSI Highline, Digital Cockpit, Turbo, White." },
+                { name: "Toyota Hilux", year: 2021, price: "Ksh 6,200,000", image: "images/car9.png", desc: "Revo Rocco, 2.8L Diesel, 4x4 Automatic, Orange." },
+                { name: "Range Rover Evoque", year: 2019, price: "Ksh 7,500,000", image: "images/car10.png", desc: "R-Dynamic, P250, Meridian Sound, Black." },
+            ];
+
+            // Use the unique list directly, no mapping needed for IDs as we have unique items
+            const allVehicles = baseVehicles;
+
+            const itemsPerPage = 4;
+            let visibleCount = 4;
+
+            function renderVehicles(count) {
+                if (!vehicleGrid) return;
+                vehicleGrid.innerHTML = ''; // Clear and rebuild is easiest for this scope
+
+                const toShow = allVehicles.slice(0, count);
+
+                toShow.forEach(vehicle => {
+                    const vehicleCard = `
+                <div class="vehicle-card reveal active"> <!-- Force active for JS loaded items -->
+                    <img src="${vehicle.image}" alt="${vehicle.name}">
+                    <div class="vehicle-card-content">
+                        <h3>${vehicle.name} (${vehicle.year})</h3>
+                        <p>${vehicle.description}</p>
+                        <span class="price">${vehicle.price}</span>
+                        <a href="#contact" class="btn">Enquire Now</a>
+                    </div>
+                </div>
+            `;
+                    vehicleGrid.innerHTML += vehicleCard;
+                });
+
+                if (count >= allVehicles.length) {
+                    loadMoreBtn.style.display = 'none';
+                }
+            }
+
+            // Initial Render
+            renderVehicles(visibleCount);
+
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    visibleCount += 8; // Load 8 more at a time
+                    if (visibleCount > allVehicles.length) visibleCount = allVehicles.length;
+                    renderVehicles(visibleCount);
+                });
+            }
+
+
+
+            // --- FAQ Accordion ---
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentElement;
+
+                    // Optional: Close other items
+                    const activeItem = document.querySelector('.faq-item.active');
+                    if (activeItem && activeItem !== item) {
+                        activeItem.classList.remove('active');
+                    }
+
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
